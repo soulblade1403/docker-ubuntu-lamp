@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  apache2:
+#    image: secomm/docker-magento2-win
+    image: phpcuong/magento2-apache2:3.0
+    ports:
+      - 10000:10000
+    expose:
+      - 80
+    environment:
+      VIRTUAL_HOST: test-mage.local
+      VIRTUAL_PORT: 80
+      LETSENCRYPT_HOST: test-mage.local
+      LETSENCRYPT_EMAIL: phuoc.vu@secomm.vn
+    volumes:
+      - ./src:/var/www/html:consistent
+    container_name: test-dev-env
+
+networks:
+  default:
+    external:
+      name: reverse-proxy
