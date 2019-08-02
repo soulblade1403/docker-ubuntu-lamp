@@ -2,10 +2,12 @@ version: '3'
 
 services:
   apache2:
-#    image: secomm/docker-magento2-win
-    image: phpcuong/magento2-apache2:3.0
-    ports:
-      - 10000:10000
+    image: secomm/docker-magento2-win
+#    image: phpcuong/magento2-apache2:3.0
+#    build: ./docker-images-for-win
+#    user: "web:web"
+#    ports:
+#      - 10000:10000
     expose:
       - 80
     environment:
